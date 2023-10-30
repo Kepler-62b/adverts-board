@@ -22,8 +22,7 @@ jobs:
           php-version: '8.1'
           
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress 
-        --no-suggest
+        run: composer install --prefer-dist --no-progress --no-suggest
 
 
   test:
