@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:
+  setup:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,5 +19,17 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # Specify the desired PHP version
+          php-version: '8.1'
           
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress 
+        --no-suggest
+
+
+  test:
+    runs-on: ubuntu-latest
+    needs: [setup]
+
+    steps:
+      - name: Run tests
+        run: vendor/bin/phpunit
