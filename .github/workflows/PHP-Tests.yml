@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+        
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -23,12 +23,7 @@ jobs:
           
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
-
-
-  test:
-    runs-on: ubuntu-latest
-    needs: [setup]
-
-    steps:
+        
       - name: Run tests
         run: vendor/bin/phpunit ./tests/Unit/DependencyContainerTest.php
+        
