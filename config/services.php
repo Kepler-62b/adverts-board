@@ -18,8 +18,8 @@ return [
 //        'Framework\Service\Database\PDOConnection' => fn(): PDOConnection => PDOConnection::getInstance(),
         /* сервисы */
         DatabaseConfigs::class => fn(): DatabaseConfigs => new DatabaseConfigs(),
-        RedisDriver::class => fn(DependencyContainer $c): RedisDriver => new RedisDriver(...$c->get(DatabaseConfigs::class)->setConfig('Redis')->connect()),
-        PDOSQLDriver::class => fn(DependencyContainer $c): PDOSQLDriver => new PDOSQLDriver(...$c->get(DatabaseConfigs::class)->setConfig('PostgreSQL')->connect()),
+        RedisDriver::class => fn(DependencyContainer $c): RedisDriver => new RedisDriver(...$c->get(DatabaseConfigs::class)->setConfig('Redis')),
+        PDOSQLDriver::class => fn(DependencyContainer $c): PDOSQLDriver => new PDOSQLDriver(...$c->get(DatabaseConfigs::class)->setConfig('PostgreSQL')),
         SQLStorage::class => fn(DependencyContainer $c): SQLStorage => new SQLStorage($c->get(PDOSQLDriver::class)),
         RedisStorage::class => fn(DependencyContainer $c): RedisStorage => new RedisStorage($c->get(RedisDriver::class)),
         StorageFactory::class => fn(DependencyContainer $c): StorageFactory => new StorageFactory(
