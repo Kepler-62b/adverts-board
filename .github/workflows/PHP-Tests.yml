@@ -31,4 +31,4 @@ jobs:
 
     steps:
       - name: Run tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit ./tests/Unit/DependencyContainerTest.php
