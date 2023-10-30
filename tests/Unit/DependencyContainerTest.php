@@ -16,7 +16,7 @@ class DependencyContainerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->services = include "../../config/services.php";
+        $this->services = include "config/services.php";
         $this->container = new DependencyContainer($this->services['container']);
     }
 
