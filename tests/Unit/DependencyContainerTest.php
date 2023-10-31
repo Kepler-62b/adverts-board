@@ -16,7 +16,13 @@ class DependencyContainerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->services = include "config/services.php";
+        $this->services = 
+            'container' => [
+                DatabaseConfigs::class => fn(DependencyContainer $c): DatabaseConfigs => new DatabaseConfigs(),
+                RedisDriver::class => fn(DependencyContainer $c): RedisDriver => new RedisDriver(...$c->get(DatabaseConfigs::class)->setConfig('Redis')),
+                Image::class => fn(): Image => new Image('container image', 0),
+            ],
+            ;
         $this->container = new DependencyContainer($this->services['container']);
     }
 
