@@ -31,7 +31,5 @@ return [
         /* контроллеры */
         AdvertController::class => fn(DependencyContainer $c): AdvertController => new AdvertController($c->get(AdvertRepository::class)),
         ImageController::class => fn(DependencyContainer $c): ImageController => new ImageController($c->get(ImageRepository::class)),
-        /* модель для тестирования */
-        Image::class => fn(): Image => new Image('container image', 0),
     ],
 ];
