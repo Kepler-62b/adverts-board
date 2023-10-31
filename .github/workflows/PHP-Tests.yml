@@ -25,5 +25,5 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
         
       - name: Run tests
-        run: vendor/bin/phpunit ./tests/Unit/DependencyContainerTest.php
+        run: vendor/bin/phpunit
         
