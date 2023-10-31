@@ -2,7 +2,6 @@
 
 use App\Controllers\AdvertController;
 use App\Controllers\ImageController;
-use App\Models\Image;
 use App\Repository\AdvertRepository;
 use App\Repository\ImageRepository;
 use Framework\Services\Database\DatabaseConfigs;
@@ -15,7 +14,6 @@ use Framework\Services\DependencyContainer;
 
 return [
     'container' => [
-//        'Framework\Service\Database\PDOConnection' => fn(): PDOConnection => PDOConnection::getInstance(),
         /* сервисы */
         DatabaseConfigs::class => fn(): DatabaseConfigs => new DatabaseConfigs(),
         RedisDriver::class => fn(DependencyContainer $c): RedisDriver => new RedisDriver(...$c->get(DatabaseConfigs::class)->setConfig('Redis')),
@@ -31,7 +29,5 @@ return [
         /* контроллеры */
         AdvertController::class => fn(DependencyContainer $c): AdvertController => new AdvertController($c->get(AdvertRepository::class)),
         ImageController::class => fn(DependencyContainer $c): ImageController => new ImageController($c->get(ImageRepository::class)),
-        /* модель для тестирования */
-        Image::class => fn(): Image => new Image('container image', 0),
     ],
 ];

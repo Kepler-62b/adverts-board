@@ -10,7 +10,7 @@
       "Tests\\": "tests\\"
     }
   },
-  "require": {
+    "require": {
     "symfony/http-kernel": "^6.3",
     "symfony/framework-bundle": "^6.3",
     "monolog/monolog": "^3.4",
