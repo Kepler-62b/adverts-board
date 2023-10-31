@@ -1,3 +1,6 @@
 # Directory
 /vendor/
 /.idea/
+
+# Files
+.phpunit.result.cache
