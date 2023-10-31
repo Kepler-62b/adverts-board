@@ -13,11 +13,3 @@ require __DIR__ . '/vendor/autoload.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 // chdir('/app/public');
-
-$test = new TestServices();
-
-//$test->testApp();
-
-$config = $test->testDatabaseConfigs();
-var_dump($config->setConfig('Redis'));
-
