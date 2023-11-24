@@ -1,4 +1,4 @@
-name: PHP Tests
+name: Deploy project
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  setup:
+  testing:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,10 +25,13 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
         
       - name: Run tests
-        run: vendor/bin/phpunit tests/Unit/DependencyContainerTest.php
+        run: vendor/bin/phpunit ./tests/Unit
 
+  linter:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: PHP-CS-Fixer
         uses: docker://oskarstark/php-cs-fixer-ga
         with:
           args: --config=.php-cs-fixer.dist.php --diff --dry-run
-        
