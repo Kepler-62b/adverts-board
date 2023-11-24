@@ -8,14 +8,12 @@ use Psr\Container\ContainerInterface;
 
 class DependencyContainer implements ContainerInterface
 {
-
     private array $instanceStotage = [];
 
     public function __construct(
         /** @var array<class-string, callback(ContainerInterface): mixed> */
         private array $factories
-    ) {
-    }
+    ) {}
 
     public function has(string $id): bool
     {

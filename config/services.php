@@ -22,7 +22,8 @@ return [
         RedisStorage::class => fn(DependencyContainer $c): RedisStorage => new RedisStorage($c->get(RedisDriver::class)),
         StorageFactory::class => fn(DependencyContainer $c): StorageFactory => new StorageFactory(
             $c->get(PDOSQLDriver::class),
-            $c->get(RedisDriver::class)),
+            $c->get(RedisDriver::class)
+        ),
         /* репозитории */
         AdvertRepository::class => fn(DependencyContainer $c): AdvertRepository => new AdvertRepository($c->get(StorageFactory::class)->create()),
         ImageRepository::class => fn(DependencyContainer $c): ImageRepository => new ImageRepository($c->get(StorageFactory::class)->create()),

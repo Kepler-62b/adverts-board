@@ -1,4 +1,5 @@
 <?php
+
 // внешний index для компонентов приложения
 
 declare(strict_types=1);
