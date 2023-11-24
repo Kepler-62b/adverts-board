@@ -9,15 +9,13 @@ class RedisDriver implements DriverInterface
     public function __construct(
         private string $host,
         private string $port,
-    )
-    {
-    }
+    ) {}
 
     public function connect(): void
     {
         try {
             $this->redis = new \Redis();
-//            var_dump($this->redis);
+            //            var_dump($this->redis);
             $this->redis->pconnect($this->host, $this->port);
         } catch (\RedisException $exception) {
             throw new DriverException('RedisException / ' . $exception);

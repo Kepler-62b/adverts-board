@@ -6,7 +6,7 @@ class DatabaseConfigs
 {
     public function setConfig(string $driver): array
     {
-        $configMap = include __DIR__. '/../../../config/databases.php';
+        $configMap = include __DIR__ . '/../../../config/databases.php';
 
         $mapParams = $configMap[$driver];
 
