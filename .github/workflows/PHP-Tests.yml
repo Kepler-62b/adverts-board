@@ -26,4 +26,9 @@ jobs:
         
       - name: Run tests
         run: vendor/bin/phpunit tests/Unit/DependencyContainerTest.php
+
+      - name: PHP-CS-Fixer
+        uses: docker://oskarstark/php-cs-fixer-ga
+        with:
+          args: --config=.php-cs-fixer.dist.php --diff --dry-run
         
